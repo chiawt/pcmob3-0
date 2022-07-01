@@ -16,9 +16,8 @@ export default function App() {
   const renderName = ({ item }) => {
     return <Text>{item.name}</Text>;
   };
-  <SafeAreaView style={styles.safeArea}>
-    return <FlatList data={namesAsObjects} renderItem={renderName}  keyExtractor={(item) => item.name}/>;
-    </SafeAreaView>
+ 
+  return <FlatList data={namesAsObjects} renderItem={renderName}  keyExtractor={(item) => item.name}/>;
 };
 
 const styles = StyleSheet.create({
@@ -27,8 +26,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  style: {
-    flex: 1,
-    backgroundColor: '#FF5236'
-  }
 });
