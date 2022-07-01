@@ -1,20 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, FlatList, StyleSheet, Text, View } from 'react-native';
+
+import { names } from "./name";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  // names = ['Haris', 'Ali']
+  const namesAsObjects = names.map((item)=>{
+    return { name: item};
+  });
+  // namesAsObjects = [{name: 'Haris'}, {name: 'Ali'}]
+
+  // item = {name: 'Haris'}
+  // item.name
+  // "Haris"
+  const renderName = ({ item }) => {
+    return <Text>{item.name}</Text>;
+  };
+  <SafeAreaView style={styles.safeArea}>
+    return <FlatList data={namesAsObjects} renderItem={renderName}  keyExtractor={(item) => item.name}/>;
+    </SafeAreaView>
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  style: {
+    flex: 1,
+    backgroundColor: '#FF5236'
+  }
 });
